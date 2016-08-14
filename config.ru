@@ -1,4 +1,4 @@
 # config.ru
 
-require '../Sinatra_Plus_Heroku/'
+require './app'
 run Sinatra::Application
