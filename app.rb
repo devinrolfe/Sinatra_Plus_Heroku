@@ -52,3 +52,16 @@ post "/posts" do
     redirect "posts/create", :error => 'Something went wrong. Try again. (This will disappear in 4 seconds)'
   end
 end
+
+# edit post
+get "/posts/:id/edit" do
+  @post = Post.find(params[:id])
+  @title = "Edit Form"
+  erb :"posts/edit"
+end
+
+put "/posts/:id" do
+  @post = Post.find(params[:id])
+  @post.update(params[:post])
+  redirect "/posts/#{@post.id}"
+end
